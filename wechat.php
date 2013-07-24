@@ -189,38 +189,6 @@ class WeChat {
         return null;
     }
 
-
-
-// $this->post_contents('https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxsync?sid=' . urlencode($this->sid), '{"BaseRequest":{"Uin":'.$this->Uin.',"Sid":"'.$this->sid.'"},"SyncKey":{"Count":0,"List":[]}}');
-
-
-// $data = array(
-//     "BaseRequest" => array(
-//         "Uin"=> $this->Uin,
-//         "Sid"=> $this->sid,
-//         "Skey"=> $this->Skey,
-//         "DeviceID"=> $this->DeviceID,
-//     ),
-//     "Msg" => array(
-//         "FromUserName" => $this->FromUserName,
-//         "ToUserName" => $name,
-//         "Type" => 1,
-//         "Content" => $content,
-//         "ClientMsgId" => $this->ClientMsgId,
-//         "LocalID" => $this->ClientMsgId,
-//     ),
-// );
-// $str = $this->encode($data);
-// son_decode($this->post_contents('https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxsendmsg?sid=' . urlencode($this->sid) . '&r=' .$this->ClientMsgId, $str), true);
-
-
-// $data = '{"BaseRequest":{"Uin":'.$this->Uin.',"Sid":"'.$this->sid.'"},"SyncKey":{"Count":0,"List":[]}}';
-//         $ret = json_decode($this->post_contents('https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxsync?sid=' . urlencode($this->sid), $data, 30), true);
-
-
-
-
-
 }
 
 
