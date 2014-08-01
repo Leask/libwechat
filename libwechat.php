@@ -236,4 +236,20 @@ class libwechat {
         );
     }
 
+
+    public function sendMessage($toUserName, $type = 'text', $msgPack = []) {
+        $msgPack['touser']  = $toUserName;
+        $msgPack['msgtype'] = $type;
+        return $this->twoStepsRequest(
+            'https://api.weixin.qq.com/cgi-bin/message/custom/send', [], $msgPack
+        );
+    }
+
+
+    public function sendTextMessage($toUserName, $content) {
+        return $this->sendMessage($toUserName, 'text', [
+            'text' => ['content' => $content]
+        ]);
+    }
+
 }
