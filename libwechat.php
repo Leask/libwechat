@@ -72,7 +72,7 @@ class libwechat {
     }
 
 
-    public function twoStepsRequest($url, $get = [], $post = null) {
+    public function twoStepsRequest($url, $get = [], $post = null, $unescaped = false) {
         if (($get['access_token'] = $this->getAccessToken())) {
             $result = httpkit::request(
                 $url, $get, $post, false, false, 5, 3, 'json', true
@@ -85,7 +85,7 @@ class libwechat {
                     case 42001:
                         if (($get['access_token'] = $this->getAccessToken(true))) {
                             $result = httpkit::request(
-                                $url, $get, $post, false, false, 3, 3, 'json', true
+                                $url, $get, $post, false, false, 3, 3, 'json', true, true, [], '', $unescaped
                             );
                             if ($result && $result['http_code'] === 200 && $result['json']
                             && ((int) @$result['json']['errcode'] === 0)) {
@@ -241,7 +241,8 @@ class libwechat {
         $msgPack['touser']  = $toUserName;
         $msgPack['msgtype'] = $type;
         return $this->twoStepsRequest(
-            'https://api.weixin.qq.com/cgi-bin/message/custom/send', [], $msgPack
+            'https://api.weixin.qq.com/cgi-bin/message/custom/send',
+            [], $msgPack, true
         );
     }
 
